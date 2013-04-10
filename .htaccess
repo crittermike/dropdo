@@ -1,0 +1,11 @@
+Action php54-cgi /php54.cgi
+<FilesMatch \.php$>
+  SetHandler php54-cgi
+</FilesMatch>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*) /index.html/#/$1 
+</IfModule>
